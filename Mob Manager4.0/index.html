@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<header>
+    <div class="centralized">
+        <h2 class="title">Mob Manager</h2>
+    </div>
+    <div class="centralized">
+        <img class="logo" src="dnd-logo.png" alt="dnd-logo`">
+    </div>
+</header>
+
+<body>
+    <div class="centralized">
+        <div class="form-div centralized">
+            <form id="form">
+                <input class="font"
+                type="text"
+                id="name"
+                placeholder="Enemy Name"/>
+                <input
+                type="number"
+                id="enemy-hp"
+                placeholder="HP"/>
+            <input
+                type="number"
+                id="number-of-enemies"
+                placeholder="N of mobs"/>   
+            </form>
+            <form id ="submit">
+                <input
+                type="submit"
+                id="submit-button"
+                value="Create Mobs"/>
+            </form>
+        </div>
+    </div>
+        
+    <section class="enemy-list">
+        <h2>ENEMY</h2>
+        <div class="centralized" id="enemies">
+            <!-- <div class="enemy">
+                <div class="content">
+                    <input
+                        type="text"
+                        class="text"
+                        value="Enemy"
+                        readonly
+                    />
+                    <input
+                        type="text"
+                        class="text"
+                        value="HP"
+                        readonly
+                    />
+                    <div class="actions">
+                        <button class="edit">Edit</button>
+                        <button class="delete">Delete</button>
+                    </div> 
+
+
+                </div>
+            </div> -->
+            
+        </div>
+    </section>
+
+    <script src="index.js"></script>
+
+</body>
