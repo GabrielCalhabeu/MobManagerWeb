@@ -23,7 +23,10 @@ Cada usuário deve criar uma conta para usar essa funcionalidade.
 É possível usar o app como convidado, e salvar os inimigos localmente.
 
 <p>
-  <img src="https://github.com/GabrielCalhabeu/MobManagerWeb/blob/main/MobManagerGUI.png" alt="exemplo" width=480 height=320>
+  <img src="https://github.com/GabrielCalhabeu/MobManagerWeb/blob/main/MobManagerGUI.png" alt="exemplo2" width=480 height=320>
 </p>
 
+<p>
+  <img src="https://github.com/GabrielCalhabeu/MobManagerWeb/blob/main/modal.png" alt="modal" width=240 height=240>
+</p>
 
