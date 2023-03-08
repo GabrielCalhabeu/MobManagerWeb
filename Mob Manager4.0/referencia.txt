@@ -1,0 +1,70 @@
+import React, { useState } from 'react';
+
+function InputExample({ addItemsToList }) {
+  const [formData, setFormData] = useState({ name: '', quantity: '' });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const newItems = [];
+    for (let i = 0; i < formData.quantity; i++) {
+      newItems.push({ id: i, name: formData.name });
+    }
+    addItemsToList(newItems);
+  };
+
+  return (
+    <>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="name"
+          placeholder="Nome"
+          value={formData.name}
+          onChange={handleChange}
+        />
+        <input
+          type="number"
+          name="quantity"
+          placeholder="Quantidade"
+          value={formData.quantity}
+          onChange={handleChange}
+        />
+        <button type="submit">Adicionar</button>
+      </form>
+    </>
+  );
+}
+
+function ParentComponent() {
+  const [items, setItems] = useState([]);
+
+  const addItemsToList = (newItems) => {
+    setItems([...items, ...newItems]);
+  };
+
+  return (
+    <>
+      <InputExample addItemsToList={addItemsToList} />
+      <ChildComponent items={items} />
+    </>
+  );
+}
+
+function ChildComponent({ items }) {
+  return (
+    <>
+      <ul>
+        {items.map((item) => (
+          <li key={item.id}>{item.name}</li>
+        ))}
+      </ul>
+    </>
+  );
+}
+
+export default ParentComponent;
