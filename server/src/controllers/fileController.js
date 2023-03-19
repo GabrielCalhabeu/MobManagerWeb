@@ -34,15 +34,14 @@ module.exports = {
   },
 
   async delete(request, response) {
-    const { id } = request.params;
-
-    const fileDeleted = await savefiles.findByIdAndDelete(id);
+    const { user } = request.query;
+    const fileDeleted = await savefiles.findOneAndDelete({ user: user });
 
     if (fileDeleted) {
       return response.json(fileDeleted);
     }
 
-    return response.status(400).json({ error: "id not found" });
+    return response.status(404).json({ error: "file not found" });
   },
 
   async update(request, response) {

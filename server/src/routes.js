@@ -9,9 +9,10 @@ const files = require("./models/file");
 routes.post("/accounts", accountController.create);
 routes.post("/accounts/auth", accountController.auth);
 routes.delete("/accounts/:id", accountController.delete);
+
 routes.post("/files", fileController.create);
 routes.get("/files", fileController.read);
-routes.delete("/files/:id", fileController.delete);
+routes.delete("/files/del", fileController.delete);
 routes.post("/files/:id", fileController.update);
 
 module.exports = routes;

@@ -182,16 +182,29 @@ function Signin({ enemyList, setEnemyList, addEnemyToList }) {
       return;
     }
     if (enemyList.length === 0) {
-      alert("You cannot save empty files");
+      alert("Saving an empty file delete your last file");
+      try {
+        const response = await api.delete("/files/del", {
+          params: {
+            user: login,
+          },
+        });
+        console.log(response);
+        alert("File successfully deleted");
+      } catch (error) {
+        alert("You already had no files saved");
+      }
       return;
     }
     try {
+      let fileName = enemyList[0].name;
       const response = await api.post("/files", {
         user: login,
-        title: enemyList[0].name,
+        title: fileName,
         file: enemyList,
       });
       console.log(response);
+      alert("File successfully saved");
     } catch (error) {
       alert(error, "If this happened im so sorry for you");
     }
@@ -216,7 +229,7 @@ function Signin({ enemyList, setEnemyList, addEnemyToList }) {
       if (login == "") {
         alert("You must log in to load files");
       } else {
-        alert("Oh oh, stinky, 404 file not found");
+        alert("You have no files saved.");
       }
     }
 
